@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press - Portfolio</title>
+    <link rel="stylesheet" href="rightside.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            line-height: 1.5;
+            color: #000;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+            color: #000;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 6rem 0 2rem 2rem;
+            max-width: calc(100% - 400px);
+            height: 100vh;
+            margin-left: 0rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .content-wrapper {
+            padding-right: 3rem;
+        }
+
+        .page-title {
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 4rem;
+        }
+
+        .press-list {
+            list-style: none;
+        }
+
+        .press-item {
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .press-date {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .press-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .press-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .main-content {
+                max-width: 100%;
+                height: auto;
+                padding: 5rem 1.5rem 1.5rem 1.5rem;
+                margin-left: 0;
+            }
+            .home-button {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+            .press-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">← Home</a>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <h1 class="page-title">Press</h1>
+
+            <ul class="press-list">
+                <li class="press-item">
+                    <a href="#" class="press-link">"Cafe Gitane, a Vanguard of Cool, Back on the Scene Again"</a>
+                    <span class="press-date">The New York Times • December 17, 2023</span>
+                </li>
+                <li class="press-item">
+                    <a href="#" class="press-link">"The Evolution of Downtown's Favorite French Cafe"</a>
+                    <span class="press-date">Vogue • November 30, 2023</span>
+                </li>
+                <li class="press-item">
+                    <a href="#" class="press-link">"A Look Back at 30 Years of Cafe Gitane"</a>
+                    <span class="press-date">New York Magazine • October 15, 2023</span>
+                </li>
+                <li class="press-item">
+                    <a href="#" class="press-link">"The Cultural Impact of Nolita's Beloved Cafe"</a>
+                    <span class="press-date">The Cut • September 28, 2023</span>
+                </li>
+                <li class="press-item">
+                    <a href="#" class="press-link">"How Cafe Gitane Shaped New York's Cultural Landscape"</a>
+                    <span class="press-date">W Magazine • August 22, 2023</span>
+                </li>
+                <li class="press-item">
+                    <a href="#" class="press-link">"Inside the New Book Celebrating Cafe Gitane"</a>
+                    <span class="press-date">Interview Magazine • July 15, 2023</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="rightside"></div>
+
+    <script src="rightside.js"></script>
+</body>
+</html>

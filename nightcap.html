@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title - Portfolio</title>
+    <link rel="stylesheet" href="rightside.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            line-height: 1.5;
+            color: #000;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+            color: #000;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 6rem 0 2rem 2rem;
+            max-width: calc(100% - 400px);
+            height: 100vh;
+            margin-left: 0rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .content-wrapper {
+            padding-right: 3rem;
+        }
+
+        .project-header {
+            margin-bottom: 4rem;
+        }
+
+        .project-title {
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .project-location:after {
+            content: " • ";
+            margin: 0 0.3rem;
+        }
+
+        .posters-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0;
+}
+
+.poster-wrapper {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1/1.4;
+}
+
+.poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    padding: 0;
+}
+
+.poster-caption {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+#messedup {
+    margin-left: 23px;
+}
+        
+
+        .project-description {
+            font-size: 0.8rem;
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            margin-right: 10rem;
+            width: calc(100% - 1rem);
+        }
+
+        .navigation a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .main-content {
+                max-width: 100%;
+                height: auto;
+                padding: 5rem 1.5rem 1.5rem 1.5rem;
+                margin-left: 0;
+            }
+            .home-button {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+            .posters-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .navigation {
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">← Home</a>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="project-header">
+                <h1 class="project-title">Gitane Nightcap</h1>
+                <div class="project-meta">
+                    <span class="project-location">NEW YORK, NY</span>
+                    <span class="project-role">Co-Host</span>
+                </div>
+            </div>
+
+            <div class="posters-container">
+                <div class="poster-wrapper">
+                    <img src="nightcap1.jpeg" alt="Event Poster 1" class="poster-image">
+                    <div class="poster-caption" id="messedup">December 15, 2023 • Design by Isobel Lola</div>
+                </div>
+                <div class="poster-wrapper">
+                    <img src="nightcap2.jpeg" alt="Event Poster 2" class="poster-image">
+                    <div class="poster-caption">January 20, 2024 • Design by Isobel Lola</div>
+                </div>
+            </div>
+            
+            <div class="project-description">
+                NIGHTCAP brings together downtown's creative youth for intimate monthly events at Cafe Gitane, where rotating hosts and DJs shape each night. The series transforms the beloved French-Moroccan institution into an after-hours gathering spot for artists and young people. These evenings blend music and conversation in a space that's become a cornerstone of Mott Street culture.
+            </div>
+
+            <div class="navigation">
+                <a href="previous-project.html" class="prev">← Previous Project</a>
+                <a href="next-project.html" class="next">Next Project →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightside"></div>
+
+    <script src="rightside.js"></script>
+</body>
+</html>
