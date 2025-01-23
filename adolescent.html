@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A New Yorker's Guide - Portfolio</title>
+    <link rel="stylesheet" href="rightside.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            line-height: 1.5;
+            color: #000;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-family: "Courier New", monospace;
+            font-size: 0.9rem;
+            color: #000;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 6rem 0 2rem 2rem;
+            max-width: calc(100% - 400px);
+            height: 100vh;
+            margin-left: 0rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .content-wrapper {
+            padding-right: 3rem;
+            max-width: 800px;
+        }
+
+        .article-header {
+            margin-bottom: 4rem;
+        }
+
+        .article-title {
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .article-location:after {
+            content: " • ";
+            margin: 0 0.3rem;
+        }
+
+        .article-image-container {
+            width: 100%;
+            margin-bottom: 1rem;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-caption {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .article-content {
+            font-size: 0.8rem;
+            margin-bottom: 4rem;
+            line-height: 1.6;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .location-time {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .location-header {
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            margin-right: 10rem;
+            width: calc(100% - 1rem);
+        }
+
+        .navigation a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .main-content {
+                max-width: 100%;
+                height: auto;
+                padding: 5rem 1.5rem 1.5rem 1.5rem;
+                margin-left: 0;
+            }
+            .home-button {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+            .navigation {
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">← Home</a>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="article-header">
+                <h1 class="article-title">Attached to New York: 30 Places to Go</h1>
+                <div class="article-meta">
+                    <span class="article-location">Adolescent Magazine</span>
+                    <span class="article-date">Author</span>
+                </div>
+            </div>
+
+            <div class="article-image-container">
+                <img src="/api/placeholder/800/450" alt="New York City street scene" class="article-image">
+            </div>
+            <div class="image-caption">
+                The East Village on a typical afternoon © 2025.
+            </div>
+            
+            <div class="article-content">
+                <p>New York is a patchwork of neighborhoods, each with its own set of distinct characters. On the Lower East Side, you'll find a more fashionable younger crowd of students and artists, and as a result, an influx of celebrities have moved in. New York has long seen a cycle where wealth gravitates toward neighborhoods established by artists, sparking waves of gentrification. Bushwick is full of DJs, art hoes, skater bros, and bike enthusiasts, while NoLita is more cafe goers, people who performatively read in public, mesh ballet flats, and tiny dog owners. Each neighborhood character is loud and distinct.</p>
+
+                <p>I grew up shuttling between the west and east coasts, until settling on the east five years ago for college. When I leased my first apartment, my roommate and I settled on the East Village, a sort of in-between from Williamsburg and the Lower East Side. The East Village is a patchwork of college students, musicians, and old-timers. We love the close access to Tompkins Square Park, lined with cozy coffee shops in every direction, along with the proximity to Saint Marks for late night bites. Plus it's just a fifteen minute walk to work each morning. We live in a four-story walk up on a charming street. The most important thing I've learned about New York is that it's the smallest city in the world when it comes to meeting and running into people and anyone who moves here will soon learn that everybody knows everybody. Here is a rundown of the spots I go to run into my nextdoor neighbor, a friend of a friend, ex-boyfriend, and at least four coworkers, and also the ones where I go to hide.</p>
+
+                <h3 class="location-header">The York</h3>
+                <p>Downtown bars tend to fall into two categories. The first is the places where you are bound to run into everyone you know, from friends, acquaintances, past Hinge dates, and people you rather avoid. The second includes the places where you will also run into people, it's inevitable, but these places are quieter and you will likely only run into people in your immediate circle, people you're happy to see. The York gets categorized in the second camp. Here I see my closest friends and it has remained a safe place for me, free from a lot of the downtown city slickers, who you run into every night at Time Again. The York is cozy, dimly lit, with an expansive backyard perfect for happy hour and cheap burgers.</p>
+                <div class="location-time">→ 1 minute walk</div>
+
+                <h3 class="location-header">Enchantments</h3>
+                <p>In the East Village, lives an emporium full of enchanted goods, a shop brimming with mystic wares, and in the back, a small bar where resident witches craft bespoke spells. Whether you consider yourself spiritually inclined or simply curious for a novel experience, Enchantments offers an opportunity to discover new layers of yourself and receive guidance you might normally not. The witches will help you choose the right ingredients for whatever you are currently going through, whether it's herbs, oils or talismans. While I'm not by any means a massive dabbler in spirituality, I have found the energy-clearing oils and candles to be effective and a nice mental refresh. As the sign says, always remember to tip your witches.</p>
+                <div class="location-time">→ 7 minute walk</div>
+
+                                <h3 class="location-header">Flower Power</h3>
+                <p>The more we party in New York, the more we inevitably confront the morning after. Flower Power in the heart of the East Village specializes in herbal remedies for ailments ranging from hangovers to heartbreak. Their anxiety-soothing supplements and golden milk blends are quick, comforting fixes for frayed nerves and weary bodies. With a knowledgeable staff at the helm, Flower Power provides natural treatments that speak to the needs of body and soul.</p>
+                <div class="location-time">→ 9 minute walk</div>
+
+                <h3 class="location-header">Studio 151</h3>
+                <p>Above the live music club Nublu lives Studio 151, a speakeasy with a popular 4-seat sushi bar. The sprawling space feels like an artist's loft with a lot of '90s-inspired decor and cool art. Vinyl records spin constantly, spanning a wide range of genres and eras. Tuesday nights here are especially fun, with a curated selection of rock and roll vinyl filling the room, making it a lively spot on a weekday.</p>
+                <div class="location-time">→ 4 minute walk</div>
+
+                                <h3 class="location-header">Tompkins Square Park</h3>
+                <p>There is much debate around the best park in Downtown, with Central Park taking the obvious lead uptown and altogether. Washington Square in the West Village is full of freshmen at NYU, chess-players, and grand piano players, and its energy is loud and exciting. Tompkins is more relaxed, and the east versus west side crowd is easily distinguishable-- it's dive bars versus jazz bars. The first warm day of Spring here is packed with New Yorkers celebrating by basking in the sun on the grass with friends. Sundays here host a lovely Farmers Market full of great seasonal produce.</p>
+                <div class="location-time">→ 1 minute walk</div>
+
+                <h3 class="location-header">Sunny and Annie's</h3>
+                <p>My favorite deli is Sunny and Annie's right by the park in the East Village, with a massive sandwich menu that does not disappoint. Open 24 hours, this is the best place to go for a bite after a late night, but bring cash because the discount is worth it. I recommend the Abraham sandwich which is a vegetarian highlight when it comes to New York subs.</p>
+                <div class="location-time">→ 2 minute walk</div>
+
+                <h3 class="location-header">Tokuyamatcha and Onigirazu Bar</h3>
+                <p>Right around the corner from my apartment, I stumbled upon what feels like the ultimate find: a hole-in-the-wall onigiri and matcha spot. The space is barely big enough for more than one person to order at a time and weekends almost guarantee a line. But it satisfies cravings like nothing else and I stop by at least a couple times a week to indulge.</p>
+                <div class="location-time">→ 13 minute walk</div>
+
+                <h3 class="location-header">Lucien</h3>
+                <p>Lucien is a giant in New York's restaurant scene, known for being crowded with the downtown trust fund art kids. Regulars include Lady Gaga and Bono. The French food here is traditional and consistently good, and the drinks, while overpriced, are executed to perfection (they make one of the best espresso martinis in the city). I admire Lucien's ability to endure multiple generational shifts, especially when owner Lucien Bahaj passed away in 2019 and the restaurant's operations were left to his son Zac. The staff are increasingly young and the parties are increasingly louder at Lucien, where Zac has managed to make the spot known to New York as a makeshift party at the end of almost every shift. I attended Zac's birthday party at Lucien last summer, where the girls working wore cross necklaces with his face printed on the center, a gaudy but nonetheless amusing touch.</p>
+                <div class="location-time">→ 7 minute walk</div>                <h3 class="location-header">Heavens Hot Bagels</h3>
+                <p>In New York, the debate over the best bagel is perennial. Russ and Daughters is a big frontrunner and so is Shelsky's in Brooklyn. But a lesser-known, still bustling spot on the Lower East Side takes the lead for me. At Heavens Hot don't let a line discourage you, they are astonishingly fast and have an efficient system down to pat. The bagels are delicious, cheap, and there is an endless array of toppings and flavors to tempt you.</p>
+                <div class="location-time">→ 7 minute walk</div>
+
+                <h3 class="location-header">The Slipper Room</h3>
+                <p>A '90s-era burlesque club on Orchard Street transforms into a late-night dance party on weekends after hours. Among the city's best-kept secrets, a weekly event called Afterlife has become a city staple for my friend group. With a great lineup of DJs and rotating hosts, there is usually a reliably exciting scene here on Friday nights. The crowd skews very young and the parties nearly always deliver.</p>
+                <div class="location-time">→ 23 minute walk</div>
+
+                <h3 class="location-header">Bar Pitti</h3>
+                <p>For a nicer meal, my first pick is the Italian staple Bar Pitti, in between Soho and the West Village. New Yorkers have been flocking here since 1992 for the daily specials scribbled on the chalkboard and the warm presence of its Italian staff, many of whom have been with the restaurant for decades. The owner, Giovanni, is around every evening, keeping a watchful eye on every detail of the restaurant's rhythm. The place draws a mix of locals, celebrities, and artists, yet remains mostly free of the banker crowd, thanks in no small part to Giovanni's steadfast cash-only policy since first opening. There is an ATM downstairs in case you come unprepared.</p>
+                <div class="location-time">→ 17 minute walk</div>                <h3 class="location-header">Genkiya Mart</h3>
+                <p>As someone who can eat Japanese food for every meal, Genkiya Mart was a game changer for easy, grab-and-go sushi. There is hardly a day I don't stop by here, whether for a roll, some onigiri, or Japanese candy. The prices are good and the options are vast. There is also a Japanese grocery store in the back that has so many great finds. After 8 pm, sushi rolls are half-off.</p>
+                <div class="location-time">→ 4 minute walk</div>
+
+                <h3 class="location-header">Elizabeth Street Garden</h3>
+                <p>For years now the city has waged a battle against a small but beloved oasis in NoLita, adored by all who step through its gates. The garden, a verdant escape adorned with statues and rare plants, draws crowds seeking respite from New York's busy pace. It's my favorite place to enjoy a coffee or read a book, and the community events from concerts to poetry readings bring the neighborhood together. Volunteers are stationed in the garden full-time, offering information on how visitors can contribute or rally to protect the space from the city's ongoing efforts to shut it down. Weekends can be a struggle for seating, but on weekdays, time here will be your favorite, most restorative, hours you spend in the city.</p>
+                <div class="location-time">→ >1 minute walk</div>
+
+                <h3 class="location-header">Lovely Day</h3>
+                <p>Lovely Day is my favorite place to go for dinner, whether you're with an old friend, on a first date, or with your parents, it offers a perfect evening for every occasion. The room is cozy, the prices are low and the menu is a delicious blend of Thai and Japanese. Late at night, Lovely Day turns into Lovely Night, with a basement downstairs that comes alive with vinyl-spinning DJs and a great bar.</p>
+                <div class="location-time">→ 3 minute walk</div>
+
+                <h3 class="location-header">Cafe Gitane</h3>
+                <p>This cafe is a New York institution I started going to as a kid. It's been open 30 years, and while I'm admittedly biased as I've worked there for the last four years, there's nothing like it. The servers are all young women, effortlessly magnetic, with a charm that makes you want to be in their orbit. The food is a French Moroccan blend and at night it is a cozy spot to grab an inexpensive glass of wine or couscous. Outside, the four bright blue tables are prime real estate, especially on weekends when the wait is worth it—the people-watching is some of the best in the city. Once a month, the cafe hosts a party series called Nightcap, which features different DJs and hosts each time. The party spills from the cafe onto the street and creates a scene in an otherwise typically quieter neighborhood.</p>
+                <div class="location-time">→ 6 minute walk</div>                <h3 class="location-header">Codex</h3>
+                <p>A small used bookstore on the north end of Soho features a plethora of hidden gems if you are patient enough to dig through and find them. Plan to spend an afternoon here, looking through old books and it's a great place to bring in books you no longer want, as they give you store credit in return. The store connects to Think Coffee and it's nice to grab a matcha and then wander through Codex looking for your next read.</p>
+                <div class="location-time">→ 10 minute walk</div>
+
+                <h3 class="location-header">Balthazar</h3>
+                <p>Open since 1997, Balthazar is a New York institution, as iconic and classic as any museum here. Its founder, restauranteur Keith McNally has a renowned instagram presence for his public daily reports of Balthazar shifts each week, and sometimes flaming celebrities who misbehave here (remember James Cordon!). Balthazar has the most beautiful dining room in all of New York, undoubtedly. I love coming to the bar late Friday night for a drink, plus its one of the easier places to find guys to pick up the tab.</p>
+                <div class="location-time">→ 5 minute walk</div>
+
+                <h3 class="location-header">Fanelli's</h3>
+                <p>Moving to New York, you will inevitably encounter Fanelli's, a choice spot for meetings, dates, and reunions alike. I joke that the large red neon sign out front is like downtown's own Empire State Building; you can almost spot its glow from every neighboring street in Soho. Fanelli's is a classic and while I overdid it my first couple of years here and have been on something of a hiatus since, it's a classic for a reason. The people-watching from the tables outside is top-tier, the staff is lively and befriendable, and it's the kind of scene that can become addicting, where you will find yourself coming back for more every night.</p>
+                <div class="location-time">→ 16 minute walk</div>
+
+                <h3 class="location-header">The River</h3>
+                <p>My favorite bar in New York is a moody dive bar in deep Chinatown with a view of the prison where Epstein died. The ambiance is irresistibly saloon-like-- low lighting, dark pine wood, and a mural of a river stretching across the room, furnished and designed by Green River Project, the interior design branch of ultra-hip brand BODE. At The River, the vibe shifts every night. Sometimes it's packed shoulder to shoulder, loud and buzzing with people dancing and mingling. Other nights, it's quieter and feels like the most comfortable and charming place in the world. The cocktails are the best I've ever tried, and the pornstar martini is worthy of an extra special mention. I've spent more time here than I can count and it's probably my top date night spot in the city. The girls who manage the bar host an extremely challenging and equally fun trivia night most weeks, with clever and creative themes each time. For trivia, follow @theme_trivia and get there early if you want a chance at participating.</p>
+                <div class="location-time">→ >1 minute walk</div>                <h3 class="location-header">Dr Clark</h3>
+                <p>Conveniently next door to The River, the same group owns Dr Clark, a Hokkaido restaurant that turns into a bar with occasional karaoke after hours. The food here is ridiculously good and the room is easy to spend hours in. The room really transforms late at night, when the dinner crowd leaves and people migrate back and forth from The River for beer and songs.</p>
+                <div class="location-time">→ 9 minute walk</div>
+
+                <h3 class="location-header">Winnie's</h3>
+                <p>Winnie's is not for the faint of heart-- the staff can be hostile and the room can be intolerably overpacked, but this grungy bar on the second floor of a walkup on East Broadway is Chinatown's favorite spot for karaoke. The wait for your turn to sing is long but the thrill of belting out Madonna with friends while a roomful of strangers watches is, well, it's something. The backyard is a nice reprise from the inside, where you can enjoy a cigarette and conversation.</p>
+                <div class="location-time">→ 5 minute walk</div>
+
+                <h3 class="location-header">Time Again</h3>
+                <p>Time Again is downtown Manhattan's version of a street party in Brazil, tucked at the intersection of Bowery and Canal, just underneath the Manhattan Bridge. Before city officials decided to take notice, it was a summer-long revelry, an impromptu outdoor club in a parking lot. Opened in early 2024, it quickly became poised for a legendary season, drawing a crowd that radiates in both style and number. Many older New Yorkers say the buzzing energy at Time Again this summer was the closest thing to a pre-technology New York that they have seen. Drinks aren't overpriced, but the hunt for plastic neon stools and a mini table demands serious patience. Recently, the city, on a mission to curtail outdoor dining and, it would seem, all fun, has put a stop to the sprawl of tables and people into the alleyway. Still, the spot's ample sidewalk seating inevitably spills onto the street when it's late enough.</p>
+                <div class="location-time">→ 4 minute walk</div>
+
+                <h3 class="location-header">Kiki's</h3>
+                <p>Kiki's is widely considered to be the restaurant of Dimes Square, being that it is one of only a few good food options in the area and prices are right. The staff are young and fun, the Greek food is traditional and yum. You will likely run into people here and they don't take reservations so on weekends the line is down the block. For a more relaxed experience, I recommend coming on a weekday night and enjoying a long, delightful evening of good plates and cheap wine.</p>
+                <div class="location-time">→ 1 minute walk</div>
+
+                <h3 class="location-header">Le Dive</h3>
+                <p>Before Time Again, there was Le Dive-- a charming French bar with prime outdoor seating on Canal Street, courtesy of the city's Open Streets initiative which closes certain blocks to cars during the warmer months. Le Dive is more polished than its neighbor, Clandestino, which has its own sets of pros and cons. During Fashion Week, the bar becomes a magnet for models, designers, stylists, and interns alike, enjoying their few minutes to spare with an Aperol spritz.</p>
+                <div class="location-time">→ >1 minute walk</div>
+
+                <h3 class="location-header">Clandestino</h3>
+                <p>Next to Le Dive is the more laid-back dive Clandestino, a stalwart of Dimes Square since 2006 and the neighborhood's first bar. The air is thick with the scent of palo santo and the atmosphere is unpretentious. It gets packed here in the after hours, from midnight to two or three in the morning. They have a hidden patio in the back, typically kept locked, but when it's open, it's my go-to spot for a date. It's private, cozy, and few people know to even look for it.</p>
+                <div class="location-time">→ 1 minute walk</div>
+
+                <h3 class="location-header">Metrograph</h3>
+                <p>This beloved movie theater on Ludlow Street in the Lower East Side features every kind of film from art house to classics to horror, and offers the best experience of any cinema I've been to. The rooms are small and beautiful, the movie calendar is always full of treasures, and they have a bar and restaurant where they host events in celebration of film. Screenings and Q&A's here are always delightful and I recommend the membership, for $5 a month each movie ticket is discounted $7. After a movie here, walk around the corner to Clandestino for a round of drinks.</p>
+                <div class="location-time">→ 3 minute walk</div>
+
+                <h3 class="location-header">Casino</h3>
+                <p>Casino is one of the more refined restaurants in Dimes Square, where dinner is expensive but justified by the dining room's atmosphere. The bold red flooring stretches across the room, distinctive chandelier fixtures cast a flattering glow, and accentuating booths feel like private enclaves amidst a buzzing dinner crowd. One night here, my waiter, still excited from having served Taylor Swift and Zoe Kravitz the evening before, poured us free shots from the Amaro bottle they drank from. Casino is strikingly contrasted by its next door neighbor, Bar 169, with its neon lighting and over-sweetened mix drinks, more reminiscent of a college bar. Still, that holds its appeal as a late-night stop in the area.</p>
+                <div class="location-time">→ 10 minutes on the train + 10 minute walk</div>
+
+                <h3 class="location-header">Public Records</h3>
+                <p>In Downtown Brooklyn, Public Records opened in 2019 as a cool initiative to start a hybrid sound space that houses events from vinyl nights to live music to nightclub style DJs. The space here is beautiful, I'm a big fan of the disco ball, and their events are relevant and non-repetitive. They offer food service as well as an atrium and upstairs cocktail bar, but the highlight here is definitely the sound room.</p>
+                <div class="location-time">→ 8 minute walk</div>
+
+                <h3 class="location-header">The Brooklyn Inn</h3>
+                <p>Nestled on a quiet corner in Boerum Hill is the lively Brooklyn Inn, a spacious, historic bar with character to spare. Inside, rooms unfold one after another: a classic bar up front, a snug sitting room, and lastly a dedicated space for the pool table-- a centerpiece that tends to draw the longest stays. Weekends may mean a wait to play, but it's a perfect setting to bring friends or compete with total strangers.</p>
+                <div class="location-time">→ 50 minutes on the train (a trek, but worth it if you want to dance)</div>
+
+                <h3 class="location-header">Basement</h3>
+                <p>A nightclub in Queens that features underground Techno each weekend has become a consistent hang to go dancing and get wasted with your friends. The music is loud, the room is dark, and prices are comparatively low, especially if you plan and get a ticket early. Places to go dancing in New York have become depressingly scarce but Basement remains a solid option to let loose. I prefer the people here to most clubs in NYC, where bars still take a wide lead over clubs in comparison to cities like Berlin or Paris.</p>
+                </div>
+
+          
+
+            </div>
+
+            <div class="navigation">
+                <a href="#" class="prev">← Previous Article</a>
+                <a href="#" class="next">Next Article →</a>
+            </div>
+        </div>
+    </div>
+   
+    <div class="sidebar">
+        <!-- Sidebar content will be loaded here -->
+    </div>
+
+    <script src="rightside.js"></script>
+
+</body>
+</html>

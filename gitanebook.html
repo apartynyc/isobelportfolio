@@ -37,11 +37,16 @@
 
         .main-content {
             flex: 1;
-            padding: 6rem 3rem 2rem 2rem;
+            padding: 6rem 0 2rem 2rem;
             max-width: calc(100% - 400px);
-            overflow-y: auto;
             height: 100vh;
-            margin-left: 2rem;
+            margin-left: 0rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .content-wrapper {
+            padding-right: 3rem;
         }
 
         .project-header {
@@ -163,7 +168,7 @@
             font-size: 0.8rem;
             padding-top: 2rem;
             border-top: 1px solid #eee;
-            margin-right: 1rem;
+            margin-right: 10rem;
             width: calc(100% - 1rem);
         }
 
@@ -220,77 +225,78 @@
     <a href="index.html" class="home-button">← Home</a>
 
     <div class="main-content">
-        <div class="project-header">
-            <h1 class="project-title">Cafe Gitane Book</h1>
-            <div class="project-meta">
-                <span class="project-location">NEW YORK, NY</span>
-                <span class="project-role">Author</span>
-            </div>
-        </div>
-
-        <div class="image-grid">
-            <div class="book-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide active">
-                        <img src="gitanebookflip/book1.jpg" alt="Book Page 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book2.jpg" alt="Book Page 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book3.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book4.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book5.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book6.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book7.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book8.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book9.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book10.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book11.jpg" alt="Book Page 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="gitanebookflip/book12.jpg" alt="Book Page 3">
-                    </div>
-
-                </div>
-                <div class="carousel-nav">
-                    <button class="prev-button">← Previous</button>
-                    <button class="next-button">Next →</button>
+        <div class="content-wrapper">
+            <div class="project-header">
+                <h1 class="project-title">Cafe Gitane Book</h1>
+                <div class="project-meta">
+                    <span class="project-location">NEW YORK, NY</span>
+                    <span class="project-role">Author</span>
                 </div>
             </div>
 
-            <div class="side-image image-right">
-                <img src="right-image.jpg" alt="Right Image">
+            <div class="image-grid">
+                <div class="book-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="gitanebookflip/book1.jpg" alt="Book Page 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book2.jpg" alt="Book Page 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book3.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book4.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book5.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book6.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book7.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book8.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book9.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book10.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book11.jpg" alt="Book Page 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="gitanebookflip/book12.jpg" alt="Book Page 3">
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="prev-button">← Previous</button>
+                        <button class="next-button">Next →</button>
+                    </div>
+                </div>
+
+                <div class="side-image image-right">
+                    <img src="right-image.jpg" alt="Right Image">
+                </div>
+
+                <div class="side-image image-bottom-left">
+                    <img src="bottom-left-image.jpg" alt="Bottom Left Image">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                [Project description goes here. The description should provide context about the project, its goals, and your role in its creation.]
             </div>
 
-            <div class="side-image image-bottom-left">
-                <img src="bottom-left-image.jpg" alt="Bottom Left Image">
+            <div class="navigation">
+                <a href="#" class="prev">← Previous Project</a>
+                <a href="#" class="next">Next Project →</a>
             </div>
-        </div>
-        
-        <div class="project-description">
-            [Project description goes here. The description should provide context about the project, its goals, and your role in its creation.]
-        </div>
-
-        <div class="navigation">
-            <a href="#" class="prev">← Previous Project</a>
-            <a href="#" class="next">Next Project →</a>
         </div>
     </div>
 
