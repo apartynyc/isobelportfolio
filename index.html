@@ -5,246 +5,359 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: "Courier New", monospace;
-            line-height: 1.5;
-            color: #000;
-            display: flex;
-            min-height: 100vh;
-        }
+body {
+    font-family: "Courier New", monospace;
+    line-height: 1.5;
+    color: #000;
+    display: flex;
+    min-height: 100vh;
+}
 
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            max-width: calc(100% - 400px);
-            overflow-y: auto;
-            height: 100vh;
-        }
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: calc(100% - 400px);
+    overflow-y: auto;
+    height: 100vh;
+}
 
-        .sidebar {
-            width: 400px;
-            padding: 2rem;
-            position: fixed;
-            right: 0;
-            top: 0;
-            height: 100vh;
-            border-left: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-        }
+.sidebar {
+    width: 400px;
+    padding: 2rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    border-left: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
 
-        .header-title {
-            margin-bottom: 4rem;
-            font-size: 0.9rem;
-            font-style: italic;
-            font-weight: normal;
-        }
+.header-title {
+    margin-bottom: 4rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+}
 
-        .portfolio-section {
-            margin-bottom: 4rem;
-        }
+.portfolio-section {
+    margin-bottom: 4rem;
+}
 
-        [data-section="featured"] {
-            margin-bottom: 4rem;
-            padding-bottom: 4rem;
-            border-bottom: 1px solid #eee;
-        }
+[data-section="featured"] {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #eee;
+}
 
-        .section-title {
-            font-size: 0.9rem;
-            font-style: italic;
-            font-weight: normal;
-            margin-bottom: 2rem;
-        }
+.section-title {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    align-items: end;
+}
 
-        #projectStorage {
-            display: none !important;
-        }
+#projectStorage {
+    display: none !important;
+}
 
-        .project-card {
-            display: block;
-            cursor: pointer;
-        }
+.project-card {
+    display: block;
+    cursor: pointer;
+}
 
-        .project-info {
-            display: flex;
-            flex-direction: column;
-        }
+.project-info {
+    display: flex;
+    flex-direction: column;
+}
 
-        .project-meta {
-            display: inline;
-            font-size: 0.7rem;
-            opacity: 0.8;
-        }
+.project-meta {
+    display: inline;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
 
-        .project-location:after {
-            content: " • ";
-            margin: 0 0.3rem;
-        }
+.project-location:after {
+    content: " • ";
+    margin: 0 0.3rem;
+}
 
-        .project-role {
-            display: inline;
-            font-size: 10px;
-        }
+.project-role {
+    display: inline;
+    font-size: 10px;
+}
 
-        [data-section="creative"] .project-card img,
-        [data-section="collab"] .project-card img {
-            width: auto;
-            height: auto;
-            max-width: 120px;
-            max-height: 120px;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
+[data-section="creative"] .project-card img,
+[data-section="collab"] .project-card img {
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 120px;
+    margin-bottom: 0.75rem;
+    display: block;
+}
 
-        [data-section="featured"] .project-card img {
-            width: auto;
-            height: auto;
-            max-width: 200px;
-            max-height: 200px;
-            margin-bottom: 1rem;
-            display: block;
-        }
+[data-section="featured"] .project-card img {
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 1rem;
+    display: block;
+}
 
-        .project-title {
-            position: relative;
-            font-size: 0.8rem;
-            font-weight: normal;
-            margin-bottom: 0.25rem;
-            display: block;
-        }
+.project-title {
+    position: relative;
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-bottom: 0.25rem;
+    display: block;
+}
 
-        .project-title span:first-child {
-            position: relative;
-            display: inline-block;
-        }
+.project-title span:first-child {
+    position: relative;
+    display: inline-block;
+}
 
-        .project-card:hover .project-title span:first-child::before {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid #000;
-            border-radius: 50%;
-            z-index: -1;
-        }
+.project-card:hover .project-title span:first-child::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    border-radius: 50%;
+    z-index: -1;
+}
 
-        [data-section="creative"] .project-title,
-        [data-section="collab"] .project-title {
-            font-size: 0.7rem;
-        }
+[data-section="creative"] .project-title,
+[data-section="collab"] .project-title {
+    font-size: 0.7rem;
+}
 
-        [data-section="featured"] .project-title {
-            font-size: 0.9rem;
-        }
+[data-section="featured"] .project-title {
+    font-size: 0.9rem;
+}
 
-        .project-location {
-            font-size: 0.7rem;
-            opacity: 0.8;
-        }
+.project-location {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
 
-        [data-section="creative"] .project-location,
-        [data-section="collab"] .project-location {
-            font-size: 0.6rem;
-        }
+[data-section="creative"] .project-location,
+[data-section="collab"] .project-location {
+    font-size: 0.6rem;
+}
 
-        [data-section="featured"] .project-location {
-            font-size: 0.8rem;
-        }
+[data-section="featured"] .project-location {
+    font-size: 0.8rem;
+}
 
-        .sidebar-title {
-            font-size: 0.9rem;
-            font-style: italic;
-            font-weight: normal;
-            margin-bottom: 2rem;
-        }
+.sidebar-title {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
 
-        .bio {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
+.bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
 
-        .links {
-            margin-top: 2rem;
-        }
+.links {
+    margin-top: 2rem;
+}
 
-        .links a {
-            color: #000;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
+.links a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
 
-        .resume-button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid #000;
-            text-decoration: none;
-            color: #000;
-            font-size: 0.9rem;
-            transition: background-color 0.2s, color 0.2s;
-        }
+.resume-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+}
 
-        .resume-button:hover {
-            background-color: #000;
-            color: #fff;
-        }
+.resume-button:hover {
+    background-color: #000;
+    color: #fff;
+}
 
-        .credit {
-            margin-top: auto;
-            font-size: 0.7rem;
-            text-align: right;
-            padding-top: 2rem;
-        }
+.credit {
+    margin-top: auto;
+    font-size: 0.7rem;
+    text-align: right;
+    padding-top: 2rem;
+}
 
-        .credit a {
-            color: #000;
-            text-decoration: none;
-        }
+.credit a {
+    color: #000;
+    text-decoration: none;
+}
 
-        @media (max-width: 1200px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            body {
-                flex-direction: column;
-            }
-            .main-content {
-                max-width: 100%;
-                height: auto;
-            }
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-left: none;
-                border-top: 1px solid #eee;
-            }
-        }
+.bottom-container {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding: 1rem;
+        height: auto;
+        margin-bottom: 36px;
+    }
+
+    .portfolio-section {
+        position: relative;
+        overflow: visible;
+        padding: 0 2rem;
+    }
+
+    .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        scroll-behavior: smooth;
+        grid-template-columns: none;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .projects-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .project-card {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    /* Carousel Arrows */
+    .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    z-index: 2;
+}
+
+.carousel-arrow:hover {
+    opacity: 1;
+}
+
+.carousel-prev {
+    left: -0.5rem;
+}
+
+.carousel-next {
+    right: -0.5rem;
+}
+
+.carousel-prev::before {
+    content: "←";
+}
+
+.carousel-next::before {
+    content: "→";
+}
+    /* Bottom Bar */
+    .bottom-container {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 1000;
+        transform: translateY(calc(100% - 36px));
+        transition: transform 0.3s ease-out;
+    }
+
+    .bottom-bar {
+        height: 36px;
+        border-top: 1px solid #000;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        cursor: pointer;
+    }
+
+    .footer-name {
+        font-size: 0.9rem;
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    .bottom-content {
+        flex-direction: column;
+        padding: 1.5rem;
+        border-top: 1px solid #000;
+        background: white;
+    }
+
+    .bottom-left {
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .bottom-right {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .bottom-container.visible {
+        transform: translateY(0);
+    }
+
+    /* Hide the desktop sidebar */
+    .sidebar {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -278,7 +391,7 @@
             </div>
             <div class="project-card" data-project="project3" data-type="creative" data-featured="true">
                 <a href="adolescent.html" style="text-decoration: none; color: inherit;">
-                    <img src="/api/placeholder/800/600" alt="Adolescent Article">
+                    <img src="adoimg.jpg" alt="Adolescent Article">
                     <div class="project-info">
                         <div class="project-title">Attached to New York: 30 Places to Go</div>
                         <div class="project-meta">
@@ -302,7 +415,7 @@
                 </a>
             </div>
             <div class="project-card" data-project="project5" data-type="collab" data-featured="false">
-                <a href="bennington10.html" style="text-decoration: none; color: inherit;">
+                <a href="https://www.benningtonreview.org/current-issue-10" style="text-decoration: none; color: inherit;">
                     <img src="ben10.jpg" alt="Bennington Issue 10">
                     <div class="project-info">
                         <div class="project-title">Issue Ten, Return to a Meadow</div>
@@ -314,7 +427,7 @@
                 </a>
             </div>
             <div class="project-card" data-project="project6" data-type="collab" data-featured="false">
-                <a href="britney.html" style="text-decoration: none; color: inherit;">
+                <a href="https://www.newyorker.com/news/american-chronicles/britney-spears-conservatorship-nightmare" style="text-decoration: none; color: inherit;">
                     <img src="britimg.webp" alt="Jia Tolentina NYT">
                     <div class="project-info">
                         <div class="project-title">Britney Spears's Conservatorship Nightmare</div>
@@ -326,7 +439,7 @@
                 </a>
             </div>
             <div class="project-card" data-project="project7" data-type="collab" data-featured="false">
-                <a href="selena.html" style="text-decoration: none; color: inherit;">
+                <a href="https://www.vogue.com/article/selena-gomez-cover-april-2021" style="text-decoration: none; color: inherit;">
                     <img src="selimg.webp" alt="Jia Tolentina Vogue">
                     <div class="project-info">
                         <div class="project-title">Selena Gomez on Politics, Faith, and Making the Music of Her Career</div>
@@ -338,7 +451,7 @@
                 </a>
             </div>
             <div class="project-card" data-project="project8" data-type="collab" data-featured="false">
-                <a href="happyreader.html" style="text-decoration: none; color: inherit;">
+                <a href="https://www.thehappyreader.com/issue-16/" style="text-decoration: none; color: inherit;">
                     <img src="hapimg.jpg" alt="Jia Tolentina Brittany">
                     <div class="project-info">
                         <div class="project-title">Issue No.16</div>
@@ -350,7 +463,7 @@
                 </a>
             </div>
             <div class="project-card" data-project="project8" data-type="collab" data-featured="false">
-                <a href="happyreader.html" style="text-decoration: none; color: inherit;">
+                <a href="https://www.interviewmagazine.com/fashion/normcore-the-oral-history-no-one-asked-for" style="text-decoration: none; color: inherit;">
                     <img src="normimg.jpg" alt="Fiona Alison Duncan Normcore">
                     <div class="project-info">
                         <div class="project-title">Normcore, The Oral History No One Asked For
@@ -366,16 +479,22 @@
 
         <section class="portfolio-section">
             <h2 class="section-title">FEATURED WORK</h2>
+            <div class="carousel-prev carousel-arrow"></div>
+<div class="carousel-next carousel-arrow"></div>
             <div class="projects-grid" data-section="featured"></div>
         </section>
 
         <section class="portfolio-section">
-            <h2 class="section-title">CREATIVE DIRECTION</h2>
+            <h2 class="section-title">SOLO WORK</h2>
+            <div class="carousel-prev carousel-arrow"></div>
+<div class="carousel-next carousel-arrow"></div>
             <div class="projects-grid" data-section="creative"></div>
         </section>
 
         <section class="portfolio-section">
             <h2 class="section-title">COLLABORATIONS</h2>
+            <div class="carousel-prev carousel-arrow"></div>
+<div class="carousel-next carousel-arrow"></div>
             <div class="projects-grid" data-section="collab"></div>
         </section>
     </div>
@@ -400,7 +519,55 @@ developing compelling visual narratives with editorial insight.
         </div>
     </div>
 
+    <div class="bottom-container">
+        <div class="bottom-bar">
+            <div class="footer-name">Isobel Lola</div>
+        </div>
+        <div class="bottom-content">
+            <div class="bottom-left">
+                <div class="bio">
+                    Isobel Lola is a recent graduate with proven experience in creative direction, social media
+                    management, brand storytelling, and interview work.
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div class="links">
+                    <a href="mailto:isobellola@gmail.com">isobellola@gmail.com</a>
+                    <a href="https://www.instagram.com/isobellola/">Instagram</a>
+                    <a href="#">Press</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="mobilefooter.js"></script>
     <script>
+        function initializeCarousels() {
+    const sections = document.querySelectorAll('.portfolio-section');
+    
+    sections.forEach(section => {
+        const grid = section.querySelector('.projects-grid');
+        const prevBtn = section.querySelector('.carousel-prev');
+        const nextBtn = section.querySelector('.carousel-next');
+        const cards = grid.querySelectorAll('.project-card');
+        
+        const scrollAmount = grid.offsetWidth;
+        
+        prevBtn.addEventListener('click', () => {
+            grid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            grid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    });
+}
         function wrapFirstLetter(element) {
             const text = element.textContent;
             const firstLetter = text.charAt(0);
