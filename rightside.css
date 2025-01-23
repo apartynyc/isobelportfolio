@@ -1,0 +1,75 @@
+/* sidebar.css */
+.sidebar {
+    width: 400px;
+    padding: 2rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    border-left: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.links {
+    margin-top: 2rem;
+}
+
+.links a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.resume-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.resume-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.credit {
+    margin-top: auto;
+    font-size: 0.7rem;
+    text-align: right;
+    padding-top: 2rem;
+}
+
+.credit a {
+    color: #000;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid #eee;
+    }
+}

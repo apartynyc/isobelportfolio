@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            line-height: 1.5;
+            color: #000;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100% - 400px);
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 400px;
+            padding: 2rem;
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            border-left: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title {
+            margin-bottom: 4rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .portfolio-section {
+            margin-bottom: 4rem;
+        }
+
+        [data-section="featured"] {
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        #projectStorage {
+            display: none !important;
+        }
+
+        .project-card {
+            display: block;
+            cursor: pointer;
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-meta {
+            display: inline;
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .project-location:after {
+            content: " • ";
+            margin: 0 0.3rem;
+        }
+
+        .project-role {
+            display: inline;
+            font-size: 10px;
+        }
+
+        [data-section="creative"] .project-card img,
+        [data-section="collab"] .project-card img {
+            width: auto;
+            height: auto;
+            max-width: 120px;
+            max-height: 120px;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        [data-section="featured"] .project-card img {
+            width: auto;
+            height: auto;
+            max-width: 200px;
+            max-height: 200px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-title {
+            position: relative;
+            font-size: 0.8rem;
+            font-weight: normal;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .project-title span:first-child {
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-card:hover .project-title span:first-child::before {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #000;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        [data-section="creative"] .project-title,
+        [data-section="collab"] .project-title {
+            font-size: 0.7rem;
+        }
+
+        [data-section="featured"] .project-title {
+            font-size: 0.9rem;
+        }
+
+        .project-location {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        [data-section="creative"] .project-location,
+        [data-section="collab"] .project-location {
+            font-size: 0.6rem;
+        }
+
+        [data-section="featured"] .project-location {
+            font-size: 0.8rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: normal;
+            margin-bottom: 2rem;
+        }
+
+        .bio {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            margin-top: 2rem;
+        }
+
+        .links a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .resume-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #000;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .resume-button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .credit {
+            margin-top: auto;
+            font-size: 0.7rem;
+            text-align: right;
+            padding-top: 2rem;
+        }
+
+        .credit a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            body {
+                flex-direction: column;
+            }
+            .main-content {
+                max-width: 100%;
+                height: auto;
+            }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-left: none;
+                border-top: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+
+        
+        <div id="projectStorage" style="display: none;">
+            <div class="project-card" data-project="project1" data-type="creative" data-featured="true">
+                <a href="gitanebook.html" style="text-decoration: none; color: inherit;">
+                    <img src="Gitane30_1214.jpg" alt="Cafe Gitane Book">
+                    <div class="project-info">
+                        <div class="project-title">Cafe Gitane Book</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK, NY</span>
+                            <span class="project-role">Author</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project2" data-type="creative" data-featured="true">
+                <a href="https://www.nytimes.com/2024/12/17/style/cafe-gitane-mcnally-editions-scene.html" style="text-decoration: none; color: inherit;">
+                    <img src="NYTimg.jpg" alt="New York Times Article">
+                    <div class="project-info">
+                        <div class="project-title">Cafe Gitane, a Vanguard of Cool, Back on the Scene Again</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK, NY</span>
+                            <span class="project-role">Subject</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project3" data-type="creative" data-featured="true">
+                <a href="adolescent.html" style="text-decoration: none; color: inherit;">
+                    <img src="/api/placeholder/800/600" alt="Adolescent Article">
+                    <div class="project-info">
+                        <div class="project-title">Attached to New York: 30 Places to Go</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK, NY</span>
+                            <span class="project-role">Author</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="project-card" data-project="project4" data-type="collab" data-featured="false">
+                <a href="https://www.benningtonreview.org/current-issue-11" style="text-decoration: none; color: inherit;">
+                    <img src="ben11img.jpg" alt="Bennington Issue 11">
+                    <div class="project-info">
+                        <div class="project-title">Issue 11, Money Makes the World</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK, NY</span>
+                            <span class="project-role">Literary Editor</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project5" data-type="collab" data-featured="false">
+                <a href="bennington10.html" style="text-decoration: none; color: inherit;">
+                    <img src="ben10.jpg" alt="Bennington Issue 10">
+                    <div class="project-info">
+                        <div class="project-title">Issue Ten, Return to a Meadow</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK, NY</span>
+                            <span class="project-role">Literary Editor</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project6" data-type="collab" data-featured="false">
+                <a href="britney.html" style="text-decoration: none; color: inherit;">
+                    <img src="britimg.webp" alt="Jia Tolentina NYT">
+                    <div class="project-info">
+                        <div class="project-title">Britney Spears's Conservatorship Nightmare</div>
+                        <div class="project-meta">
+                            <span class="project-location">NEW YORK TIMES</span>
+                            <span class="project-role">Assistant</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project7" data-type="collab" data-featured="false">
+                <a href="selena.html" style="text-decoration: none; color: inherit;">
+                    <img src="selimg.webp" alt="Jia Tolentina Vogue">
+                    <div class="project-info">
+                        <div class="project-title">Selena Gomez on Politics, Faith, and Making the Music of Her Career</div>
+                        <div class="project-meta">
+                            <span class="project-location">VOGUE</span>
+                            <span class="project-role">Assistant</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project8" data-type="collab" data-featured="false">
+                <a href="happyreader.html" style="text-decoration: none; color: inherit;">
+                    <img src="hapimg.jpg" alt="Jia Tolentina Brittany">
+                    <div class="project-info">
+                        <div class="project-title">Issue No.16</div>
+                        <div class="project-meta">
+                            <span class="project-location">THE HAPPY READER</span>
+                            <span class="project-role">Assistant</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="project-card" data-project="project8" data-type="collab" data-featured="false">
+                <a href="happyreader.html" style="text-decoration: none; color: inherit;">
+                    <img src="normimg.jpg" alt="Fiona Alison Duncan Normcore">
+                    <div class="project-info">
+                        <div class="project-title">Normcore, The Oral History No One Asked For
+                        </div>
+                        <div class="project-meta">
+                            <span class="project-location">INTERVIEW MAGAZINE</span>
+                            <span class="project-role">Assistant</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <section class="portfolio-section">
+            <h2 class="section-title">FEATURED WORK</h2>
+            <div class="projects-grid" data-section="featured"></div>
+        </section>
+
+        <section class="portfolio-section">
+            <h2 class="section-title">CREATIVE DIRECTION</h2>
+            <div class="projects-grid" data-section="creative"></div>
+        </section>
+
+        <section class="portfolio-section">
+            <h2 class="section-title">COLLABORATIONS</h2>
+            <div class="projects-grid" data-section="collab"></div>
+        </section>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-title">Isobel Lola</div>
+        <div class="bio">
+            Isobel Lola is a recent graduate with proven experience in creative direction, social media
+management, brand storytelling, and interview work. She demonstrated success in
+creating compelling content strategies, managing multiple social media platforms,
+and driving brand visibility. Strong background in curating brand aesthetics and
+developing compelling visual narratives with editorial insight.
+        </div>
+        <div class="links">
+            <a href="mailto:isobellola@gmail.com">isobellola@gmail.com</a>
+            <a href="press.html">Press</a>
+            <a href="#" class="resume-button">Resume</a>
+        </div>
+        <div class="credit">
+            <a href="#" target="_blank">made by [YOUR CREDIT HERE]</a>
+        </div>
+    </div>
+
+    <script>
+        function wrapFirstLetter(element) {
+            const text = element.textContent;
+            const firstLetter = text.charAt(0);
+            const rest = text.slice(1);
+            element.innerHTML = `<span>${firstLetter}</span>${rest}`;
+        }
+
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.substring(0, maxLength) + '...';
+            }
+            return text;
+        }
+
+        function displayProjects() {
+            const projectStorage = document.getElementById('projectStorage');
+            const projects = Array.from(projectStorage.getElementsByClassName('project-card'));
+            
+            const featuredSection = document.querySelector('[data-section="featured"]');
+            const creativeSection = document.querySelector('[data-section="creative"]');
+            const collabSection = document.querySelector('[data-section="collab"]');
+            
+            featuredSection.innerHTML = '';
+            creativeSection.innerHTML = '';
+            collabSection.innerHTML = '';
+
+            projects.forEach(project => {
+                const clone = project.cloneNode(true);
+                
+                const titleElement = clone.querySelector('.project-title');
+                const originalTitle = titleElement.textContent;
+                titleElement.textContent = truncateText(originalTitle, 30);
+                
+                wrapFirstLetter(titleElement);
+                
+                if (project.dataset.featured === 'true') {
+                    const featuredClone = clone.cloneNode(true);
+                    featuredSection.appendChild(featuredClone);
+                }
+                
+                if (project.dataset.type === 'creative') {
+                    creativeSection.appendChild(clone.cloneNode(true));
+                } else if (project.dataset.type === 'collab') {
+                    collabSection.appendChild(clone.cloneNode(true));
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', displayProjects);
+    </script>
+</body>
+</html>
